@@ -33,7 +33,7 @@ import reactor.core.publisher.Mono;
  */
 @Controller
 @RequestMapping(USER_BASE_URL_V1)
-public class UserController extends CommonController<UserDTO, User, UserService> {
+public class UserController extends CommonController<UserDTO, User, UserService, Long> {
     
     @Builder
     public UserController(UserService service) {

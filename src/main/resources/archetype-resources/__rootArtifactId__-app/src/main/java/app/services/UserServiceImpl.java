@@ -29,7 +29,7 @@ import reactor.core.scheduler.Schedulers;
  *
  */
 @Service
-public class UserServiceImpl extends CommonServiceImpl<UserDTO, User, UserRepository> implements UserService {
+public class UserServiceImpl extends CommonServiceImpl<UserDTO, User, UserRepository, Long> implements UserService {
 
     private ModelMapper modelMapper;
     

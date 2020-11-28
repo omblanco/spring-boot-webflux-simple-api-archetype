@@ -12,8 +12,9 @@ import reactor.core.publisher.Mono;
  *
  * @param <D> Clase DTO
  * @param <E> Clase Entity
+ * @param <K> Clase del ID
  */
-public interface CommonService<D, E> {
+public interface CommonService<D, E, K> {
 
     /**
      * Recupera un listado con todos los dtos
@@ -26,7 +27,7 @@ public interface CommonService<D, E> {
      * @param id Clave
      * @return Dto
      */
-    Mono<D> findById(Long id);
+    Mono<D> findById(K id);
     
     /**
      * Guarda un dto

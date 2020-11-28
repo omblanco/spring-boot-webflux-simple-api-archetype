@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
  * @author oscar.martinezblanco
  *
  */
-public interface UserService extends CommonService<UserDTO, User>{
+public interface UserService extends CommonService<UserDTO, User, Long>{
 
     /**
      * Recupera usuarios paginados y filtrados

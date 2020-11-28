@@ -23,6 +23,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import ${package}.app.services.UserService;
 import ${package}.app.web.dto.UserDTO;
 import ${package}.app.web.dto.UserFilterDTO;
+import ${package}.commons.annotation.loggable.Loggable;
 import ${package}.commons.web.handler.CommonHandler;
 
 import lombok.AllArgsConstructor;
@@ -34,6 +35,7 @@ import reactor.core.publisher.Mono;
  * @author oscar.martinezblanco
  *
  */
+@Loggable
 @AllArgsConstructor
 @Component
 public class UserHandler extends CommonHandler {
@@ -71,7 +73,7 @@ public class UserHandler extends CommonHandler {
         }
     }
     
-    
+    @Deprecated
     public Mono<ServerResponse> findByFilter(ServerRequest request) {
         return ServerResponse.ok()
                 .contentType(APPLICATION_JSON)

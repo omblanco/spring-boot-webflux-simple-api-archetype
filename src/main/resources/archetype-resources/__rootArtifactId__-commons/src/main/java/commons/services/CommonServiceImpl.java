@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import ${package}.commons.annotation.loggable.Loggable;
+
 import lombok.AllArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -21,9 +23,11 @@ import reactor.core.scheduler.Schedulers;
  * @param <D> Clase DTO
  * @param <E> Clase Entity
  * @param <R> Clase Repository
+ * @param <K>
  */
+@Loggable
 @AllArgsConstructor
-public abstract class CommonServiceImpl <D, E, R extends JpaRepository<E, Long>> implements CommonService<D, E>{
+public abstract class CommonServiceImpl <D, E, R extends JpaRepository<E, K>, K> implements CommonService<D, E, K> {
 
     protected R repository;
     
@@ -36,7 +40,7 @@ public abstract class CommonServiceImpl <D, E, R extends JpaRepository<E, Long>>
     }
 
     @Override
-    public Mono<D> findById(Long id) {
+    public Mono<D> findById(K id) {
         return Mono.defer(() -> Mono.just(repository.findById(id))).flatMap(optional -> {
             if (optional.isPresent()) {
                 return Mono.just(convertToDto(optional.get()));
