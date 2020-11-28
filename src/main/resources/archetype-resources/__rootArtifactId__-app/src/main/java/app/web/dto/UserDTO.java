@@ -25,7 +25,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class UserDTO extends CommonDTO {
+public class UserDTO extends CommonDTO<Long> {
     
     @NotNull
     @Size(min = 3, max = 25)

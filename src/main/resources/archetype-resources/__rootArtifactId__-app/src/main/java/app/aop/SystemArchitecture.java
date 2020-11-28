@@ -34,4 +34,12 @@ public class SystemArchitecture {
     public void inDataAccessLayer() {
         //Firma del pointcut para la capa de repositorios de la aplicación
     }
+    
+    /**
+     * Pointcut para componentes que tengan la anotación personalizada @Loggable
+     */
+    @Pointcut("within(@${package}.commons.annotation.loggable.Loggable *)")
+    public void loggableElement() {
+        //Firma del pointcut para elementos con la anotación personalizada @Loggable
+    }
 }

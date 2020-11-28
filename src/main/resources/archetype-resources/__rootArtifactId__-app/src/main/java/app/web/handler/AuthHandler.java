@@ -16,6 +16,7 @@ import ${package}.app.security.TokenProvider;
 import ${package}.app.services.UserService;
 import ${package}.app.web.dto.LoginRequestDTO;
 import ${package}.app.web.dto.LoginResponseDTO;
+import ${package}.commons.annotation.loggable.Loggable;
 
 import lombok.AllArgsConstructor;
 import reactor.core.publisher.Mono;
@@ -26,6 +27,7 @@ import reactor.core.publisher.Mono;
  * @author oscar.martinezblanco
  *
  */
+@Loggable
 @AllArgsConstructor
 @Component
 public class AuthHandler {

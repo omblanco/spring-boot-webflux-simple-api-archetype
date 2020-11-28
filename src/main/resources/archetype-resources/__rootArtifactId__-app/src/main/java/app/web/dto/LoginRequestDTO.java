@@ -3,6 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.app.web.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +24,10 @@ import lombok.ToString;
 @ToString
 public class LoginRequestDTO {
 
+    @Email
+    @NotNull
     private String email;
     
+    @NotNull
     private String password;
 }

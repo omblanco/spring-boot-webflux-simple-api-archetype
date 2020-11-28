@@ -6,15 +6,12 @@ package ${package}.app.web.controllers;
 import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V2;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import ${package}.app.model.entity.User;
@@ -39,7 +36,7 @@ import reactor.core.publisher.Mono;
  */
 @RestController
 @RequestMapping(USER_BASE_URL_V2)
-public class UserRestController extends CommonController<UserDTO, User, UserService> {
+public class UserRestController extends CommonController<UserDTO, User, UserService, Long> {
 
     @Builder
     public UserRestController(UserService service) {

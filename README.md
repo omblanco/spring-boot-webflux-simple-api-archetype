@@ -1,7 +1,7 @@
 # Spring Boot Webflux Simple Api Archetype
 
 ## Descripción
-Arquetipo para la generación de una api rest básica basada en la aplicación [Spring Boot Webflux Simple Api 1.4.0](https://github.com/omblanco/spring-boot-webflux-simple-api/tree/1.4.0)
+Arquetipo para la generación de una api rest básica basada en la aplicación [Spring Boot Webflux Simple Api 1.5.0](https://github.com/omblanco/spring-boot-webflux-simple-api)
 
 
 ## Ejemplo de uso
@@ -62,4 +62,24 @@ package: com.foo.api
 [INFO] Total time:  50.346 s
 [INFO] Finished at: 2020-11-24T23:17:42+01:00
 [INFO] ------------------------------------------------------------------------
+``` 
+Ejecución de la aplicación MySQL
+``` 
+cd foo-api-app
+cd target
+java -jar foo-api-app-1.0.0-SNAPSHOT.jar
+-- Carga de algún profile
+java -jar -Dspring.profiles.active=profiling foo-api-app-1.0.0-SNAPSHOT.jar
+``` 
+
+Ejecución de la aplicación Mongo
+``` 
+cd foo-api-mongo-app
+cd target
+java -jar foo-api-mongo-app-1.0.0-SNAPSHOT.jar
+``` 
+#### Observaciones
+Si al instalar una nueva versión del arquetipo no aparece al ejecutar el comando generate se debe actualizar el .m2 local ejecutando:
+``` 
+mvn archetype:crawl
 ``` 
