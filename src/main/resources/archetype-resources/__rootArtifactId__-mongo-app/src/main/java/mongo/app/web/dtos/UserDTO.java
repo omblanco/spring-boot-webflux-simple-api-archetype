@@ -6,6 +6,7 @@ package ${package}.mongo.app.web.dtos;
 import java.util.Date;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -27,15 +28,15 @@ import lombok.ToString;
 @ToString
 public class UserDTO extends CommonDTO<String> {
     
-    @NotNull
+    @NotEmpty
     @Size(min = 3, max = 25)
     private String name;
     
-    @NotNull
+    @NotEmpty
     @Size(min = 3, max = 50)
     private String surname;
     
-    @NotNull
+    @NotEmpty
     @Size(min = 3, max = 50)
     @Email
     private String email;
@@ -44,7 +45,7 @@ public class UserDTO extends CommonDTO<String> {
     @Past
     private Date birthdate;
     
-    @NotNull
+    @NotEmpty
     @Size(min = 4, max = 25)
     private String password;
     

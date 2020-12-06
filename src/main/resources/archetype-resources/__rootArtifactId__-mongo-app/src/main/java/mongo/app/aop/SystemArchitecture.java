@@ -42,4 +42,12 @@ public class SystemArchitecture {
     public void loggableElement() {
         //Firma del pointcut para elementos con la anotación personalizada @Loggable
     }
+    
+    /**
+     * Pointcut para componentes que tengan la anotación personalizada Traceable
+     */
+    @Pointcut("within(@${package}.commons.annotation.traceable.Traceable *)")
+    public void traceableElement() {
+        //Firma del pointcut para elementos con la anotación personalizada @Traceable
+    }
 }

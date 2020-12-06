@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.mongo.app.sercurity;
+package ${package}.app.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,18 +12,21 @@ import org.springframework.security.config.annotation.web.reactive.EnableWebFlux
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
+import ${package}.commons.security.AuthenticationManager;
+import ${package}.commons.security.SecurityContextRepository;
+
 import lombok.AllArgsConstructor;
 import reactor.core.publisher.Mono;
 
 /**
- * Clase de configuración de Spring Security
+ * Clase de configuración de los filtros de Spring Security
  * @author oscar.martinezblanco
  *
  */
 @AllArgsConstructor
 @Configuration
 @EnableWebFluxSecurity
-public class SecurityConfig{
+public class SecurityWebFilterChainConfig {
 
     private AuthenticationManager authenticationManager;
 

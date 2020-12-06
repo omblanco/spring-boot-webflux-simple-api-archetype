@@ -1,10 +1,9 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.app.web.dto;
+package ${package}.commons.web.dto;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- * Clase DTO con la petición de login
+ * Clase con la información del estado de la aplicación
  * @author oscar.martinezblanco
  *
  */
@@ -22,12 +21,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class LoginRequestDTO {
+public class AppInfoDTO {
 
-    @Email
-    @NotNull
-    private String email;
+    private String environment;
     
-    @NotNull
-    private String password;
+    private String version;
+    
+    private String name;
+    
+    private Date now;
 }

@@ -13,8 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import ${package}.app.utils.BaseApiConstants;
-import ${package}.app.web.dto.AppInfoDTO;
+import ${package}.commons.utils.BaseApiConstants;
+import ${package}.commons.web.dto.AppInfoDTO;
 
 /**
  * AppInfoController

@@ -3,9 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.mongo.app.web.handlers;
 
-import static ${package}.mongo.app.utils.BaseApiConstants.FORWARD_SLASH;
-import static ${package}.mongo.app.utils.BaseApiConstants.ID_PARAM_NAME;
-import static ${package}.mongo.app.utils.BaseApiConstants.USER_BASE_URL_V3;
+import static ${package}.commons.utils.BaseApiConstants.FORWARD_SLASH;
+import static ${package}.commons.utils.BaseApiConstants.ID_PARAM_NAME;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V3;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.BodyInserters.fromValue;
 
@@ -21,10 +21,10 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 import ${package}.commons.annotation.loggable.Loggable;
+import ${package}.commons.web.dto.UserFilterDTO;
 import ${package}.commons.web.handler.CommonHandler;
 import ${package}.mongo.app.services.UserService;
 import ${package}.mongo.app.web.dtos.UserDTO;
-import ${package}.mongo.app.web.dtos.UserFilterDTO;
 
 import lombok.AllArgsConstructor;
 import reactor.core.publisher.Mono;

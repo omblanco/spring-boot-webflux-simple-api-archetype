@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.app.web.controllers;
 
-import static ${package}.app.utils.BaseApiConstants.STATUS_BASE_URL_V1;
+import static ${package}.commons.utils.BaseApiConstants.STATUS_BASE_URL_V1;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 import java.util.Date;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ${package}.app.web.dto.AppInfoDTO;
+import ${package}.commons.web.dto.AppInfoDTO;
 
 import reactor.core.publisher.Mono;
 

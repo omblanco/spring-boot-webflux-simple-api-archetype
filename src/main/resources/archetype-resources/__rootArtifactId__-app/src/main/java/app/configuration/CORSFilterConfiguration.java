@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.mongo.app.sercurity;
+package ${package}.app.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ import org.springframework.web.reactive.config.WebFluxConfigurer;
 @Profile("security")
 @Configuration
 @EnableWebFlux
-public class CORSFilter implements WebFluxConfigurer {
+public class CORSFilterConfiguration implements WebFluxConfigurer {
 
     private static final String ASTERISK = "*";
     private static final String ALL_URL_PATTERN = "/**";

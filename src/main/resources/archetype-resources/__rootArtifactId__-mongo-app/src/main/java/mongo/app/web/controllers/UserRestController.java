@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.mongo.app.web.controllers;
 
-import static ${package}.mongo.app.utils.BaseApiConstants.USER_BASE_URL_V2;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V2;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 import org.springframework.data.domain.Pageable;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ${package}.commons.web.controllers.CommonController;
+import ${package}.commons.web.dto.UserFilterDTO;
 import ${package}.mongo.app.model.entity.User;
 import ${package}.mongo.app.services.UserService;
 import ${package}.mongo.app.web.dtos.UserDTO;
-import ${package}.mongo.app.web.dtos.UserFilterDTO;
 
 import lombok.Builder;
 import reactor.core.CorePublisher;

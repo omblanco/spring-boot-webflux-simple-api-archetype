@@ -3,9 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.mongo.app;
 
-import static ${package}.mongo.app.utils.BaseApiConstants.AUTH_URL_V1;
-import static ${package}.mongo.app.utils.BaseApiConstants.ID_PARAM_URL;
-import static ${package}.mongo.app.utils.BaseApiConstants.USER_BASE_URL_V3;
+import static ${package}.commons.utils.BaseApiConstants.AUTH_URL_V1;
+import static ${package}.commons.utils.BaseApiConstants.ID_PARAM_URL;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V3;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.server.RequestPredicates.DELETE;
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
@@ -24,7 +24,6 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 import ${package}.mongo.app.web.handlers.AuthHandler;
 import ${package}.mongo.app.web.handlers.UserHandler;
-
 
 /**
  * Configuración para los Functional Endpoints de usuario

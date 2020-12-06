@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.mongo.app.web.dtos;
+package ${package}.commons.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -7,10 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import ${package}.commons.services.CommonService;
+import ${package}.commons.web.dto.UserFilterDTO;
 import ${package}.mongo.app.model.entity.User;
 import ${package}.mongo.app.web.dtos.UserDTO;
-import ${package}.mongo.app.web.dtos.UserFilterDTO;
-
 
 import reactor.core.publisher.Mono;
 
@@ -30,4 +29,5 @@ public interface UserService extends CommonService<UserDTO, User, String>{
      * @return Usuario
      */
     Mono<UserDTO> findByEmail(String email);
+    
 }

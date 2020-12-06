@@ -3,9 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.app.web.controllers;
 
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V1;
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V2;
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V3;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V1;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V2;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V3;
 
 import java.util.Collections;
 import java.util.Date;
@@ -23,7 +23,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import ${package}.app.services.UserService;
-import ${package}.app.utils.BaseApiConstants;
+import ${package}.commons.utils.BaseApiConstants;
 import ${package}.app.web.dto.UserDTO;
 
 import reactor.core.publisher.Mono;
