@@ -1,7 +1,7 @@
 # Spring Boot Webflux Simple Api Archetype
 
 ## Descripción
-Arquetipo para la generación de una api rest básica basada en la aplicación [Spring Boot Webflux Simple Api 1.5.0](https://github.com/omblanco/spring-boot-webflux-simple-api)
+Arquetipo para la generación de una api rest básica basada en la aplicación [Spring Boot Webflux Simple Api 1.6.0](https://github.com/omblanco/spring-boot-webflux-simple-api)
 
 
 ## Ejemplo de uso
