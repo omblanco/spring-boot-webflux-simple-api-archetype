@@ -14,7 +14,7 @@ import javax.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
 import ${package}.app.model.entity.User;
-import ${package}.app.web.dto.UserFilterDTO;
+import ${package}.commons.web.dto.UserFilterDTO;
 
 public class UserSpecifications extends BaseSpecifications {
     

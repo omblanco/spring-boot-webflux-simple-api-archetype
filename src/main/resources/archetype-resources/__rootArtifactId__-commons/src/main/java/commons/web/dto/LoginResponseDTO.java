@@ -1,9 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.app.web.dto;
-
-import java.util.Date;
+package ${package}.commons.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- * Clase con la información del estado de la aplicación
+ * Clase DTO con la respuesta del login con el token
  * @author oscar.martinezblanco
  *
  */
@@ -21,13 +19,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class AppInfoDTO {
+public class LoginResponseDTO {
 
-    private String environment;
-    
-    private String version;
-    
-    private String name;
-    
-    private Date now;
+    private String token;
+
 }

@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.mongo.app.configuration;
 
+import java.io.IOException;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -15,47 +16,60 @@ import org.springframework.context.annotation.Profile;
 import ${package}.mongo.app.model.entity.User;
 import ${package}.mongo.app.model.repositories.UserRepository;
 
+import de.flapdoodle.embed.mongo.config.IMongoCmdOptions;
+import de.flapdoodle.embed.mongo.config.IMongodConfig;
+import de.flapdoodle.embed.mongo.config.MongoCmdOptionsBuilder;
+import de.flapdoodle.embed.mongo.config.MongodConfigBuilder;
+import de.flapdoodle.embed.mongo.config.Net;
+import de.flapdoodle.embed.mongo.distribution.Version;
+import de.flapdoodle.embed.process.runtime.Network;
 import reactor.core.publisher.Flux;
 
 /**
  * Carga los datos iniciales de usuarios para el profile de 
  * pruebas
  * see https://docs.spring.io/spring-data/mongodb/docs/2.0.9.RELEASE/reference/html/${symbol_pound}core.repository-populators
+ * see https://jira.spring.io/browse/DATACMNS-1133
+ * see https://stackoverflow.com/questions/47678465/how-can-you-load-initial-data-in-mongodb-through-spring-boot
+ * see Jackson2RepositoryPopulatorFactoryBean
+ * 
+ * EmbeddedMongoAutoConfiguration
+ * see https://stackoverflow.com/questions/51499482/configuring-flapdoodle-embedded-mongo-with-mongodb-version-4-and-replica
+ * see https://stackoverflow.com/questions/52604062/how-to-disable-flapdoodle-embedded-mongodb-in-certain-tests
  * @author oscar.martinezblanco
  *
  */
-@Profile("!stage & !pro")
+@Profile("!dev & !stage & !pro")
 @Configuration
-public class InitialDataConfig {
+public class MongoInitialDataConfig {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(InitialDataConfig.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MongoInitialDataConfig.class);
     
-//    @Autowired
-//    private UserRepository userRepository;
-    
-//    @Value("classpath:data.json")
-//    private Resource initialData;
+    @Bean
+    public IMongodConfig prepareMongodConfig() throws IOException {
+        IMongoCmdOptions cmdOptions = new MongoCmdOptionsBuilder()
+                .useNoPrealloc(false)
+                .useSmallFiles(false)
+                .master(false)
+                .verbose(false)
+                .useNoJournal(false)
+                .syncDelay(0)
+                .build();
 
-    /**
-     * https://jira.spring.io/browse/DATACMNS-1133
-     * Jackson2RepositoryPopulatorFactoryBean no es compatible con Jackson2RepositoryPopulatorFactoryBean
-     * @param objectMapper
-     * @return
-     */
-//    @Bean
-//    @Autowired
-//    public Jackson2RepositoryPopulatorFactoryBean repositoryPopulator(ObjectMapper objectMapper){
-//        Jackson2RepositoryPopulatorFactoryBean factory = new Jackson2RepositoryPopulatorFactoryBean();
-//        factory.setMapper(objectMapper);
-//        factory.setResources(Arrays.asList(initialData).toArray(new Resource[] {}));
-//        return factory;
-//    }
+        IMongodConfig mongoConfigConfig = new MongodConfigBuilder()
+                .version(Version.Main.DEVELOPMENT)
+                .net(new Net(12345, Network.localhostIsIPv6()))
+                .configServer(false)
+                .cmdOptions(cmdOptions)
+                .build();
+        return mongoConfigConfig;
+    }    
     
     @Bean
     public ApplicationRunner loadInitalData(UserRepository userRepository) {
         return applicationRunner -> {
-//          Limpiamos si hay usuarios
-            userRepository.deleteAll();
+            // Limpiamos si hay usuarios
+            userRepository.deleteAll().subscribe();
             
             User user1 = new User(null, "John", "Doe", "john@mail.com", new Date(), "${symbol_dollar}2a${symbol_dollar}10${symbol_dollar}vUE9JNc3ZflWL6u4HFH2kOEHWgNIahyAxoUoaZ1g0rsHJ3y9kzhwy");
             User user2 = new User(null, "Oscar", "Suarez", "oscar@mail.com", new Date(), "${symbol_dollar}2a${symbol_dollar}10${symbol_dollar}vUE9JNc3ZflWL6u4HFH2kOEHWgNIahyAxoUoaZ1g0rsHJ3y9kzhwy");

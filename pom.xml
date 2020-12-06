@@ -4,7 +4,7 @@
 
   <groupId>com.omblanco.springboot.webflux.api</groupId>
   <artifactId>spring-boot-webflux-simple-api-archetype</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <packaging>maven-archetype</packaging>
 
   <name>spring-boot-webflux-simple-api-archetype</name>
@@ -30,12 +30,14 @@
 
   <description>Aplicación básica para una api rest con WebFlux</description>
 
-  <url>https://github.com/omblanco/spring-boot-webflux-simple-api</url>
+  <url>https://spring.io/projects/spring-boot/spring-boot-webflux-simple-api</url>
 
   <developers>
     <developer>
-      <name>Oscar Martinez</name>
-      <email>omblanco@gmail.com</email>
+      <name>Pivotal</name>
+      <email>info@pivotal.io</email>
+      <organization>Pivotal Software, Inc.</organization>
+      <organizationUrl>https://www.spring.io</organizationUrl>
     </developer>
   </developers>
 
@@ -45,4 +47,8 @@
       <url>https://www.apache.org/licenses/LICENSE-2.0</url>
     </license>
   </licenses>
+
+  <scm>
+    <url>https://github.com/spring-projects/spring-boot/spring-boot-webflux-simple-api</url>
+  </scm>
 </project>

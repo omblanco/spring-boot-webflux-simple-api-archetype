@@ -8,8 +8,8 @@ import org.springframework.data.domain.Pageable;
 
 import ${package}.app.model.entity.User;
 import ${package}.app.web.dto.UserDTO;
-import ${package}.app.web.dto.UserFilterDTO;
 import ${package}.commons.services.CommonService;
+import ${package}.commons.web.dto.UserFilterDTO;
 
 import reactor.core.publisher.Mono;
 

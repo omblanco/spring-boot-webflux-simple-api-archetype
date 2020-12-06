@@ -25,17 +25,15 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import ${package}.app.UserRouterFunctionConfig;
 import ${package}.app.configuration.ModelMapperConfig;
-import ${package}.app.security.AuthenticationManager;
-import ${package}.app.security.BCryptPasswordConfig;
-import ${package}.app.security.SecurityConfig;
-import ${package}.app.security.SecurityContextRepository;
-import ${package}.app.security.TokenProvider;
+import ${package}.app.configuration.SecurityConfig;
+import ${package}.app.configuration.SecurityWebFilterChainConfig;
 import ${package}.app.services.UserService;
 import ${package}.app.services.UserServiceImpl;
-import ${package}.app.utils.BaseApiConstants;
-import ${package}.app.web.dto.LoginRequestDTO;
-import ${package}.app.web.dto.LoginResponseDTO;
 import ${package}.app.web.dto.UserDTO;
+import ${package}.commons.security.TokenProvider;
+import ${package}.commons.utils.BaseApiConstants;
+import ${package}.commons.web.dto.LoginRequestDTO;
+import ${package}.commons.web.dto.LoginResponseDTO;
 
 import reactor.core.publisher.Mono;
 
@@ -46,8 +44,7 @@ import reactor.core.publisher.Mono;
  */
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {UserRouterFunctionConfig.class, AuthHandler.class, UserHandler.class})
-@Import({UserServiceImpl.class, ModelMapperConfig.class, SecurityConfig.class, AuthenticationManager.class,
-    TokenProvider.class, SecurityContextRepository.class, BCryptPasswordConfig.class})
+@Import({UserServiceImpl.class, ModelMapperConfig.class, SecurityConfig.class, SecurityWebFilterChainConfig.class})
 @WebFluxTest
 public class AuthHandlerUnitTests {
 
@@ -83,7 +80,7 @@ public class AuthHandlerUnitTests {
         //when:
         when(userService.findByEmail(login.getEmail())).thenReturn(Mono.just(userDto));
         when(passwordEncoder.matches(login.getPassword(), userDto.getPassword())).thenReturn(Boolean.TRUE);
-        when(tokenProvider.generateToken(userDto)).thenReturn(token);
+        when(tokenProvider.generateToken(userDto.getEmail(), null)).thenReturn(token);
         
         //then:
         client.post()

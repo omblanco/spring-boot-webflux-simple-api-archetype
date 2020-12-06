@@ -3,11 +3,11 @@
 #set( $symbol_escape = '\' )
 package ${package}.app.configuration;
 
-import static ${package}.app.utils.BaseApiConstants.AUTH_URL_V1;
-import static ${package}.app.utils.BaseApiConstants.STATUS_BASE_URL_V1;
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V1;
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V2;
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V3;
+import static ${package}.commons.utils.BaseApiConstants.AUTH_URL_V1;
+import static ${package}.commons.utils.BaseApiConstants.STATUS_BASE_URL_V1;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V1;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V2;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V3;
 import static springfox.documentation.builders.PathSelectors.regex;
 
 import java.util.Arrays;

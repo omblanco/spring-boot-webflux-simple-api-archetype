@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.app.web.controllers;
 
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V1;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V1;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 import org.springframework.data.domain.Pageable;
@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ${package}.app.model.entity.User;
 import ${package}.app.services.UserService;
 import ${package}.app.web.dto.UserDTO;
-import ${package}.app.web.dto.UserFilterDTO;
 import ${package}.commons.web.controllers.CommonController;
+import ${package}.commons.web.dto.UserFilterDTO;
 
 import lombok.Builder;
 import reactor.core.CorePublisher;

@@ -3,9 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.app.web.handler;
 
-import static ${package}.app.utils.BaseApiConstants.FORWARD_SLASH;
-import static ${package}.app.utils.BaseApiConstants.ID_PARAM_NAME;
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V3;
+import static ${package}.commons.utils.BaseApiConstants.FORWARD_SLASH;
+import static ${package}.commons.utils.BaseApiConstants.ID_PARAM_NAME;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V3;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.BodyInserters.fromValue;
 
@@ -22,8 +22,8 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 import ${package}.app.services.UserService;
 import ${package}.app.web.dto.UserDTO;
-import ${package}.app.web.dto.UserFilterDTO;
 import ${package}.commons.annotation.loggable.Loggable;
+import ${package}.commons.web.dto.UserFilterDTO;
 import ${package}.commons.web.handler.CommonHandler;
 
 import lombok.AllArgsConstructor;

@@ -3,9 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.app.web.handler;
 
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V1;
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V2;
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V3;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V1;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V2;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V3;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,9 +19,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import ${package}.app.utils.BaseApiConstants;
-import ${package}.app.web.dto.LoginRequestDTO;
-import ${package}.app.web.dto.LoginResponseDTO;
+import ${package}.commons.utils.BaseApiConstants;
+import ${package}.commons.web.dto.LoginRequestDTO;
+import ${package}.commons.web.dto.LoginResponseDTO;
 
 import reactor.core.publisher.Mono;
 

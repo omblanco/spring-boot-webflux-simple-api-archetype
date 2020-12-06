@@ -11,6 +11,7 @@ import ${package}.mongo.app.aop.LoggingAspect;
 import ${package}.mongo.app.aop.ProfilingAspect;
 
 
+
 /**
  * Configuración para el traceo AOP
  */

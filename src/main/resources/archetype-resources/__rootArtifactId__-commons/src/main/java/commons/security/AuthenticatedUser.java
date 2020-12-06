@@ -1,14 +1,14 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.mongo.app.sercurity;
+package ${package}.commons.security;
+
+import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
-import java.util.Collection;
-import java.util.List;
 
 /**
  * Clase que representa los detalles de un usuario autenticado

@@ -3,8 +3,8 @@
 #set( $symbol_escape = '\' )
 package ${package}.app.web.controllers;
 
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V1;
-import static ${package}.app.utils.BaseApiConstants.USER_BASE_URL_V2;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V1;
+import static ${package}.commons.utils.BaseApiConstants.USER_BASE_URL_V2;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -32,12 +32,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import ${package}.app.configuration.ModelMapperConfig;
+import ${package}.app.configuration.SecurityConfig;
+import ${package}.app.configuration.SecurityWebFilterChainConfig;
 import ${package}.app.model.entity.User;
 import ${package}.app.model.repository.UserRepository;
-import ${package}.app.security.AuthenticationManager;
-import ${package}.app.security.SecurityConfig;
-import ${package}.app.security.SecurityContextRepository;
-import ${package}.app.security.TokenProvider;
 import ${package}.app.services.UserServiceImpl;
 import ${package}.app.web.dto.UserDTO;
 
@@ -51,8 +49,7 @@ import reactor.core.publisher.Mono;
  *
  */
 @WebFluxTest(controllers = {UserController.class, UserRestController.class})
-@Import({UserServiceImpl.class, ModelMapperConfig.class, SecurityConfig.class, AuthenticationManager.class,
-        TokenProvider.class, SecurityContextRepository.class})
+@Import({UserServiceImpl.class, ModelMapperConfig.class, SecurityConfig.class, SecurityWebFilterChainConfig.class})
 public class UserControllerUnitTest {
     
     @MockBean

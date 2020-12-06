@@ -12,7 +12,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.hibernate.JDBCException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
@@ -51,10 +50,6 @@ public class LoggingAspect {
 
         if (e instanceof DataAccessException) {
             int errorCode = 0;
-
-            if (e.getCause() instanceof JDBCException) {
-                errorCode = ((JDBCException) e.getCause()).getErrorCode();
-            }
             LOGGER.error(LOG_ERROR_JDBC_PATTERN, typeName, methodName, errorCode, msg, e);
         } else {
             LOGGER.error(LOG_ERROR_PATTERN, typeName, methodName, e);

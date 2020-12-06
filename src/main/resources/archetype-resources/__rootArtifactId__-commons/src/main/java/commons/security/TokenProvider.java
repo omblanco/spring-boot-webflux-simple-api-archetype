@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.mongo.app.sercurity;
+package ${package}.commons.security;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -10,9 +10,8 @@ import java.util.List;
 import java.util.function.Function;
 
 import org.springframework.core.env.PropertyResolver;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
-
-import ${package}.mongo.app.web.dtos.UserDTO;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -62,13 +61,12 @@ public class TokenProvider implements Serializable {
         return expiration.before(new Date());
     }
 
-    public String generateToken(UserDTO user) {
-        //TODO: ROLES
-        final List<String> authorities = Arrays.asList(ROLE_ADMIN_VALUE);
+    public String generateToken(String email, List<GrantedAuthority> authorities) {
         
+        //TODO: ROLES
         return Jwts.builder()
-                .claim(AUTHORITIES_KEY, authorities)
-                .setSubject(user.getEmail())
+                .claim(AUTHORITIES_KEY, Arrays.asList(ROLE_ADMIN_VALUE))
+                .setSubject(email)
                 .signWith(SignatureAlgorithm.HS256, propertyResolver.getProperty(SIGNING_KEY_PROPERTY))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + ACCESS_TOKEN_VALIDITY_SECONDS * 1000))
