@@ -63,6 +63,19 @@ package: com.foo.api
 [INFO] Finished at: 2020-11-24T23:17:42+01:00
 [INFO] ------------------------------------------------------------------------
 ``` 
+
+### Utilizando Maven
+
+Generación de los artefactos
+``` 
+mvn clean package
+``` 
+
+Evitando los tests:
+``` 
+mvn clean package -DskipTests=true	
+``` 
+
 Ejecución de la aplicación MySQL
 ``` 
 cd foo-api-app
@@ -78,6 +91,31 @@ cd foo-api-mongo-app
 cd target
 java -jar foo-api-mongo-app-1.0.0-SNAPSHOT.jar
 ``` 
+
+### Alternativa sin maven
+
+Generación de los artefactos en el directorio raíz:
+``` 
+mvnw clean package
+``` 
+
+Para no lanzar los tests:
+``` 
+mvnw clean package -DskipTests=true
+``` 
+
+Lanzamos la aplicación MySQL o MongoDB:
+``` 
+mvnw -pl foo-api-app -am spring-boot:run
+mvnw -pl foo-api-mongo-app -am spring-boot:run
+``` 
+
+Y si queremos aplicar algún profile:
+``` 
+mvnw -pl foo-api-app -am spring-boot:run -Dspring-boot.run.arguments="--spring.profiles.active=profiling,security"
+``` 
+
+
 #### Observaciones
 Si al instalar una nueva versión del arquetipo no aparece al ejecutar el comando generate se debe actualizar el .m2 local ejecutando:
 ``` 
