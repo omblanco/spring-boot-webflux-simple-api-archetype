@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.mongo.app.aop;
+package ${package}.commons.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -12,7 +12,7 @@ import org.springframework.util.StopWatch;
 
 @Aspect
 public class ProfilingAspect {
-
+	
     private static final Logger LOGGER = LoggerFactory.getLogger(ProfilingAspect.class);
 
     /**

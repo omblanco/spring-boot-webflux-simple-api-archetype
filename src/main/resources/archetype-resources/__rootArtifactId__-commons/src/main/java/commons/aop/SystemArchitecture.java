@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.mongo.app.aop;
+package ${package}.commons.aop;
 
 import org.aspectj.lang.annotation.Pointcut;
 
@@ -13,7 +13,7 @@ public class SystemArchitecture {
     /**
      * Pointcut para la capa Web de la aplicación.
      */
-    @Pointcut("within(@org.springframework.stereotype.Controller *)")
+	@Pointcut("execution(public * @org.springframework.web.bind.annotation.RestController *.*(..)) || execution(public * @org.springframework.stereotype.Controller *.*(..))")
     public void inWebLayer() {
         //Firma del pointcut para la capa de servicios de la aplicación
     }
@@ -21,7 +21,7 @@ public class SystemArchitecture {
     /**
      * Pointcut para la capa de Servicios de la aplicación.
      */
-    @Pointcut("within(@org.springframework.stereotype.Service *)")
+    @Pointcut("execution(public * @org.springframework.stereotype.Service *.*(..))")
     public void inServiceLayer() {
         //Firma del pointcut para la capa de servicios de la aplicación
     }
@@ -38,7 +38,7 @@ public class SystemArchitecture {
     /**
      * Pointcut para componentes que tengan la anotación personalizada @Loggable
      */
-    @Pointcut("within(@${package}.commons.annotation.loggable.Loggable *)")
+    @Pointcut("execution(public * @${package}.commons.annotation.loggable.Loggable *.*(..))")
     public void loggableElement() {
         //Firma del pointcut para elementos con la anotación personalizada @Loggable
     }
@@ -46,7 +46,7 @@ public class SystemArchitecture {
     /**
      * Pointcut para componentes que tengan la anotación personalizada Traceable
      */
-    @Pointcut("within(@${package}.commons.annotation.traceable.Traceable *)")
+    @Pointcut("execution(public * @${package}.commons.annotation.traceable.Traceable *.*(..))")
     public void traceableElement() {
         //Firma del pointcut para elementos con la anotación personalizada @Traceable
     }

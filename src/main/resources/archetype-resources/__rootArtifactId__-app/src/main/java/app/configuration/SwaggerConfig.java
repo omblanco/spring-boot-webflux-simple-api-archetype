@@ -17,6 +17,7 @@ import java.util.function.Predicate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpHeaders;
 
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -39,6 +40,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
+@Profile("swagger")
 public class SwaggerConfig {
 
     @Value("${symbol_dollar}{app.version}")
@@ -157,7 +159,6 @@ public class SwaggerConfig {
                 .or(PathSelectors.regex(USER_BASE_URL_V3.concat(".*")))
                 .or(PathSelectors.regex(STATUS_BASE_URL_V1.concat(".*")));
         
-        
         return SecurityContext.builder()
             .securityReferences(defaultAuth())
             .forPaths(paths)
@@ -165,8 +166,7 @@ public class SwaggerConfig {
     }
     
     List<SecurityReference> defaultAuth() {
-        AuthorizationScope authorizationScope
-            = new AuthorizationScope("global", "accessEverything");
+        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
         AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
         authorizationScopes[0] = authorizationScope;
         return Arrays.asList(new SecurityReference("JWT", authorizationScopes));

@@ -22,7 +22,6 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 import ${package}.app.services.UserService;
 import ${package}.app.web.dto.UserDTO;
-import ${package}.commons.annotation.loggable.Loggable;
 import ${package}.commons.web.dto.UserFilterDTO;
 import ${package}.commons.web.handler.CommonHandler;
 
@@ -35,7 +34,6 @@ import reactor.core.publisher.Mono;
  * @author oscar.martinezblanco
  *
  */
-@Loggable
 @AllArgsConstructor
 @Component
 public class UserHandler extends CommonHandler {

@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.app.aop;
+package ${package}.commons.aop;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -63,8 +63,8 @@ public class LoggingAspect {
      * @return el objeto que sería devuelto originalmente en el método.
      * @throws Throwable Excepción lanzada por el método
      */
-    @Around("SystemArchitecture.inServiceLayer() || SystemArchitecture.inWebLayer() || SystemArchitecture.inDataAccessLayer() || SystemArchitecture.loggableElement()")
-    public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+    @Around("SystemArchitecture.inServiceLayer() || SystemArchitecture.inWebLayer() || SystemArchitecture.inDataAccessLayer() || SystemArchitecture.loggableElement() || SystemArchitecture.traceableElement()")
+    public Object logging(ProceedingJoinPoint joinPoint) throws Throwable {
 
         String uuid = UUID.randomUUID().toString();
         
