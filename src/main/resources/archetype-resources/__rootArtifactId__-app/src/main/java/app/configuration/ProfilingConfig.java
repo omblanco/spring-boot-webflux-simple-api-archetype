@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import ${package}.app.aop.LoggingAspect;
-import ${package}.app.aop.ProfilingAspect;
+import ${package}.commons.aop.LoggingAspect;
+import ${package}.commons.aop.ProfilingAspect;
 
 
 /**
